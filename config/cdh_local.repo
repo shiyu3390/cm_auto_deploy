@@ -1,0 +1,5 @@
+[cdh-local]
+name=CDH--Local
+baseurl=file:///opt/env_pre/package/bde_yum
+gpgcheck=0
+enabled=1

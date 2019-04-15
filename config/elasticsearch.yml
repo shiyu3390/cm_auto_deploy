@@ -1,0 +1,44 @@
+# ======================== Elasticsearch Configuration =========================
+#
+# NOTE: Elasticsearch comes with reasonable defaults for most settings.
+#       Before you set out to tweak and tune the configuration, make sure you
+#       understand what are you trying to accomplish and the consequences.
+#
+# The primary way of configuring a node is via this file. This template lists
+# the most important settings you may want to configure for a production cluster.
+#
+# Please see the documentation for further information on configuration options:
+# <http://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration.html>
+#
+# ---------------------------------- Cluster -----------------------------------
+#
+# Use a descriptive name for your cluster:
+#
+#
+# ------------------------------------ Node ------------------------------------
+#
+# Use a descriptive name for the node:
+#
+cluster.name: sinorail
+node.name: nodeName
+node.master: isMaster
+node.data: true
+node.ingest: false
+discovery.zen.ping.unicast.hosts: [esMasterHosts]
+# Prevent the "split brain" by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1):
+discovery.zen.minimum_master_nodes: minimumMasterNodes
+discovery.zen.commit_timeout: 60s
+discovery.zen.publish_timeout: 60s
+discovery.zen.ping_timeout: 60s
+discovery.zen.fd.ping_timeout: 60s
+discovery.zen.fd.ping_interval: 10s
+discovery.zen.fd.ping_retries: 6
+action.destructive_requires_name: true
+path.logs: /var/log/elasticsearch
+path.data: dataPath
+network.host: 0.0.0.0
+http.port: 9200
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+thread_pool.bulk.queue_size: 3000
+indices.query.bool.max_clause_count: 102400
