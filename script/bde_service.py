@@ -83,8 +83,8 @@ ESERV_ROLE_CONFIG = {
 }
 HMON_ROLE_CONFIG = {
     'max_log_backup_index': '1',
-    'firehose_heapsize': '268435456',
-    'firehose_non_java_memory_bytes': '805306368',
+    'firehose_heapsize': '536870912',
+    'firehose_non_java_memory_bytes': '1073741824',
     'firehose_storage_dir': HOSTMONITOR_STORAGE_DIRECTORY,
     'process_auto_restart': 'true',
     'oom_heap_dump_dir': '/tmp',
@@ -95,8 +95,8 @@ HMON_ROLE_CONFIG = {
 }
 SMON_ROLE_CONFIG = {
     'max_log_backup_index': '1',
-    'firehose_heapsize': '268435456',
-    'firehose_non_java_memory_bytes': '805306368',
+    'firehose_heapsize': '805306368',
+    'firehose_non_java_memory_bytes': '1610612736',
     'firehose_storage_dir': SERVICEMONITOR_STORAGE_DIRECTORY,
     'process_auto_restart': 'true',
     'oom_heap_dump_dir': '/tmp',
