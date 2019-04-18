@@ -1,6 +1,6 @@
 # cm_auto_deploy
 
-前提条件：做好本地yum源，放在package/bde_yum目录下，自行下载CDH、KAFKA、SPARK2的parcel文件，以及相应的sha文件，还有SPARK2_ON_YARN-2.2.0.cloudera2.jar
+前提条件：做好本地yum源，yum源包含httpd ansible createrepo keepalived nginx redis ntp lrzsz unzip rsync expect chrony jdk scala elasticsearch cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server，放在package/bde_yum目录下，自行下载CDH、KAFKA、SPARK2的parcel文件，以及相应的sha文件，还有SPARK2_ON_YARN-2.2.0.cloudera2.jar
 
 1. 编辑host_config文件
 2. 如果机器都有主机名且不是localhost，编辑hostsOld文件，配置host映射
