@@ -175,9 +175,11 @@ def deploy_hdfs(cluster, host_id_dic, service_names):
 
         snn_role_group = hdfs_service.get_role_config_group("{0}-SECONDARYNAMENODE-BASE".format(SERVICE_NAME))
         snn_role_group.update_config(HDFS_SECONDARY_NAMENODE_CONFIG)
-        snn_host_id = host_id_dic.values()[1]
+
         if HDFS_SECONDARY_NAMENODE_HOST != "":
             snn_host_id = host_id_dic[HDFS_SECONDARY_NAMENODE_HOST]
+        else:
+            snn_host_id = host_id_dic.values()[len(host_id_dic.values()) - 1]
 
         hdfs_service.create_role("{0}-snn".format(HDFS_NAMENODE_SERVICE_NAME), "SECONDARYNAMENODE", snn_host_id)
 

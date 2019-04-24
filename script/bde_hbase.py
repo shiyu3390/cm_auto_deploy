@@ -78,7 +78,8 @@ def deploy_hbase(cluster, host_id_dic, service_names):
         master_id_list = list()
         if HBASE_HM_HOST == "":
             master_id_list.append(host_id_dic.values()[0])
-            master_id_list.append(host_id_dic.values()[2])
+            if len(host_id_dic.values()) >= 3:
+                master_id_list.append(host_id_dic.values()[len(host_id_dic.values()) - 1])
         else:
             for host in HBASE_HM_HOST.split(","):
                 master_id_list.append(host_id_dic[host])

@@ -126,9 +126,10 @@ def deploy_yarn(cluster, host_id_dic, service_names):
         rm = yarn_service.get_role_config_group("{0}-RESOURCEMANAGER-BASE".format(SERVICE_NAME))
         rm.update_config(YARN_RM_CONFIG)
 
-        rm_id = host_id_dic.values()[1]
         if YARN_RM_HOST != "":
             rm_id = host_id_dic[YARN_RM_HOST]
+        else:
+            rm_id = host_id_dic.values()[0]
 
         yarn_service.create_role("{0}-rm".format(SERVICE_NAME), "RESOURCEMANAGER", rm_id)
 

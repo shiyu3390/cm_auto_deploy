@@ -2,6 +2,7 @@
 # coding=utf-8
 import sys
 import bde_config
+from cm_api.api_client import ApiException
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -49,8 +50,10 @@ def add_hosts(cluster, api):
 
     for apiHost in hosts:
         apiHost.update_config(HOST_CONFIG)
-
-    if len(cluster.list_hosts()) <= 1:
-        cluster.add_hosts(host_ids)
+    try:
+        if len(cluster.list_hosts()) <= 1:
+            cluster.add_hosts(host_ids)
+    except ApiException as ex:
+        print ex.message
 
     return cluster, host_id_dic, host_ip_dic
